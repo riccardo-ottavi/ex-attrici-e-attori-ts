@@ -11,6 +11,26 @@ function App() {
     image : string
   }
 
+  type ActressNationality = 
+  | "American"
+  | "British"
+  | "Australian"
+  | "Israeli-American"
+  | "South African"
+  | "French"
+  | "Indian"
+  | "Israeli"
+  | "Spanish"
+  | "South Korean"
+  | "Chinese"
+
+
+ type Actress = Person & {
+  most_famous_movies: [string, string, string],
+  awards: string,
+  nationality : ActressNationality,
+ }
+
   return (
     <>
       <h1>Prova</h1>

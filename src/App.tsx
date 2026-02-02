@@ -51,6 +51,26 @@ function App() {
   )
  }
 
+ async function getActress(id: number): Promise<Actress | null>{
+  try{
+    const response = await fetch(`http://localhost:3333/actresses/${id}`)
+    const data: unknown = await response.json()
+    if(!isActress(data)){
+      throw new Error ("Formato dei dati non valido")
+    }
+    return data
+  }catch(error){
+    if(error instanceof Error){
+      console.error("Errore durante il recupero dell'attrice")
+    }else{
+      console.error("Errore sconosciuto: ", error)
+    }
+    return null
+  }
+ }
+
+
+
   return (
     <>
       <h1>Prova</h1>
